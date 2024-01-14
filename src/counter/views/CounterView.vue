@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {  ref } from 'vue';
+import { ref } from 'vue'
 const counter = ref(5)
 
 const increase = () => {
-  counter.value++;
+  counter.value++
 }
 
 // export default defineComponent({
