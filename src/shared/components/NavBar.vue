@@ -1,23 +1,28 @@
 <script setup lang="ts">
-import type { RouterLink } from '@/router/list-routes';
-
+import type { RouterLink } from '@/router/list-routes'
 
 interface Props {
   title?: string
-  links: RouterLink[];
+  links: RouterLink[]
+  isSecondary?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
-  title: 'CompoApp'
+  title: 'CompoApp',
+  isSecondary: false
 })
 </script>
 
 <template>
   <nav>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
-    <span v-if="$props.title">{{ $props.title }}</span>
+    <template v-if="!$props.isSecondary">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
+      <span v-if="$props.title">{{ $props.title }}</span>
+    </template>
 
-    <RouterLink v-for="link of $props.links" :key="link.path" :to="link.path">{{link.title}}</RouterLink>
+    <RouterLink v-for="link of $props.links" :key="link.path" :to="link.path">{{
+      link.title
+    }}</RouterLink>
   </nav>
 </template>
 
@@ -39,11 +44,11 @@ a {
   margin-right: 5px;
 }
 
-nav a.router-link-exact-active {
+nav a.router-link-active {
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
+nav a.router-link-active:hover {
   background-color: transparent;
 }
 
