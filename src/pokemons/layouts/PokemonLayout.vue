@@ -16,6 +16,8 @@ const routeLinks: RouterLink[] =
 <template>
   <NavBar :links="routeLinks" :is-secondary="true" />
   <div>
-    <RouterView />
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </div>
 </template>
