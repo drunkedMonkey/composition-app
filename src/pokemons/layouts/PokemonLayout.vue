@@ -16,11 +16,11 @@ const routeLinks: RouterLink[] =
 <template>
   <NavBar :links="routeLinks" :is-secondary="true" />
   <div>
-    <Suspense>
+    <!-- <Suspense> -->
       <RouterView />
-      <template #fallback>
+      <!-- <template #fallback>
         <div>Loading...</div>
       </template>
-    </Suspense>
+    </Suspense> -->
   </div>
 </template>
