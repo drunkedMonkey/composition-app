@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { usePokemons } from '../composables/usePokemons'
+import { usePokemons } from '../composables/usePokemons.old';
 
-const { count, pokemons, isLoading } = usePokemons()
+const {count, pokemons, isLoading} = usePokemons();
 </script>
 
 <template>

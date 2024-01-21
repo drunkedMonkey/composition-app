@@ -5,7 +5,7 @@ import type {  PokemonListResponse, Pokemon, PokemonResponse } from "../interfac
 
 export const getPokemons = async():Promise<Pokemon[]>=>{
 
-    // await sleep(2);
+    // await sleep(4);
 
     const {data} = await pokemonApi.get<PokemonListResponse>('/pokemon?limit=45');
     

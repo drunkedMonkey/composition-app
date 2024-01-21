@@ -11,8 +11,8 @@ VueQueryPlugin.install(app,{
     queryClientConfig: {
         defaultOptions: {
             queries: {
-                gcTime: 1000 * 120,
-                refetchOnReconnect: 'always',
+                gcTime: 1000 * 120, // La información se borrará de la caché después de 2 minutos
+                refetchOnReconnect: 'always', // Siempre se refrescará la información cuando se reconecte
             },
         }
     },

@@ -1,21 +1,22 @@
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { getPokemons } from '../helpers/get-Pokemons'
-import type { Pokemon } from '../interfaces'
-
-const pokemons = ref<Pokemon[]>([])
-const isLoading = ref(true)
+import { useQuery } from '@tanstack/vue-query'
 
 export const usePokemons = () => {
 
-  onMounted(async () => {
-    const data = await getPokemons();
-    pokemons.value = data
-    isLoading.value = false
-  });
+    const {isLoading,data:pokemons, isError, error} = useQuery({
+          queryKey:['pokemons'], //nombre que tendrá en el caché
+          queryFn: getPokemons, //función que se ejecutará para obtener los datos
+        })
+
 
   return {
+    // properties
     pokemons,
-    isLoading,
-    count: computed(() => pokemons.value.length)
+    isLoading,    
+    error,
+    isError,
+    // computed
+    count: computed(() => pokemons.value?.length ?? 0),
   }
 }
