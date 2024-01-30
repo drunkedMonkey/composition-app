@@ -2,10 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { VueQueryPlugin } from '@tanstack/vue-query'
-import store from './store/store'
+import  '@/store/store'
 import './assets/main.css'
-
-store.startLoadingPokemons()
 
 const app = createApp(App)
 
